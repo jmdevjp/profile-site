@@ -1,0 +1,64 @@
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    /* for debug */
+    background-color: aqua;
+}
+.site-header-nav {
+    display: flex;
+    list-style: none;
+    /* for debug */
+    background-color: lightsalmon;
+}
+.site-header-top-link {
+    text-decoration: none;
+}
+
+.site-main {
+    /* for debug */
+    background-color: bisque;
+    padding: 1em;
+}
+
+.article-box {
+    display: flex;
+    flex-direction: column;
+}
+.article {
+    /* for debug */
+    background-color: darkkhaki;
+    padding: 1em;
+}
+.article-header {
+    /* for debug */
+    background-color: orchid;
+    padding: 1em;
+}
+.article-body {
+    /* for debug */
+    background-color: paleturquoise;
+    padding: 1em;
+}
+.article-link {
+    text-decoration: none;
+}
+
+.site-footer {
+    text-align: center;
+    /* for debug */
+    background-color: lightgreen;
+    padding: 1em;
+}
+
+/*
+ * 横幅が大きい場合は記事を2列にする。
+ */
+@media (min-width: 800px) {
+    article {
+        width: 50%;
+    }
+    .article-box {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
