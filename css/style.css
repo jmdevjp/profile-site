@@ -57,6 +57,24 @@ h1 {
     padding: 1em;
 }
 
+.post-label, .post-input, .post-button {
+    margin-left: 0.5em;
+}
+.post-input {
+    border: solid;
+    border-width: 1px;
+    width: 40em;
+}
+.post-summary {
+    height: 3em;
+}
+.post-body {
+    height: 12em;
+}
+.post-button {
+    border: outset;
+}
+
 /*
  * 横幅が大きい場合は記事を2列にする。
  */
