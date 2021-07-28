@@ -1,12 +1,3 @@
-<?php
-$url = 'http://' . $_SERVER['SERVER_NAME'];
-
-if ($_SERVER['SERVER_PORT'] != '80')
-{
-    $url .= ':' . $_SERVER['SERVER_PORT'];
-}
-?>
-
 <head>
     <title>jmdevjp's profile site</title>
 

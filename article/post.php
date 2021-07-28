@@ -4,6 +4,7 @@ require_once '../vendor/ezyang/htmlpurifier/library/HTMLPurifier.auto.php';
 
 $title = htmlspecialchars($_POST['title'], ENT_QUOTES, 'UTF-8');
 $summary = htmlspecialchars($_POST['summary'], ENT_QUOTES, 'UTF-8');
+$date = date("Y/m/d H:i:s");
 
 $date = date("Y年m月d日 H:i:s");
 $fname = date("Ymd") . '.html';
@@ -37,26 +38,36 @@ $page .= '<div class="article-body">';
 
 // Purifierをかける (投稿内の必要なHTMLタグは残したいため)
 $config = HTMLPurifier_Config::createDefault();
-$config->set('HTML.TargetBlank', true);
-$config->set('Attr.EnableID', true);
 $purifier = new HTMLPurifier($config);
-$page .= nl2br($purifier->purify($_POST['body']));
+$body = nl2br($purifier->purify($_POST['body']));
+$body = str_replace(array("\r\n","\r","\n"), '', $body);
 
-$page .= htmlspecialchars(nl2br($_POST['body']), ENT_QUOTES, 'UTF-8');
-$page .= '</div>';
-$page .= '</main>';
+$db_file = '../database.csv';
+$db_fh = new SplFileObject($db_file, "c+");
+$db_fh->setFlags(SplFileObject::READ_CSV);
 
-$page .= '<footer class="site-footer">';
-$page .= '<p>&copy; 2021- <a href="https://twitter.com/jmdevjp" target="_blank" rel="noopener noreferrer">@jmdevjp</a></p>';
-$page .= '</footer>';
-$page .= '</body>';
-$page .= '</html>';
+$articles = [
+    0 => [
+        $title,
+        $date,
+        $summary,
+        $body,
+    ],
+];
 
-$fh = fopen('./' . $fname, 'w');
-fwrite($fh, $page);
-fclose($fh);
+foreach ($db_fh as $v)
+{
+    $articles[] = str_replace(array("\r\n","\r","\n"), '', $v);
+}
+
+$db_fh->fseek(0);
+foreach ($articles as $v)
+{
+    $db_fh->fputcsv($v);
+}
+$db_fh = null;
 
 // 記事一覧に遷移する。
-header('Location: ./' . $fname);
+header('Location: ./top.php');
 
 ?>

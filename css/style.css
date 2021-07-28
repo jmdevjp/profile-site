@@ -88,7 +88,9 @@ ul {
 /*
  * 横幅が大きい場合は記事を2列にする。
  */
-@media (min-width: 800px) {
+
+/* 記事一覧ページは作成中のため一旦無効化 */
+/* @media (min-width: 800px) {
     article {
         width: 50%;
     }
@@ -96,4 +98,4 @@ ul {
         flex-direction: row;
         flex-wrap: wrap;
     }
-}
+} */
