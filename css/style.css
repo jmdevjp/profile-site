@@ -41,6 +41,11 @@ h1 {
     background-color: orchid;
     padding: 1em;
 }
+.article-summary {
+    /* for debug */
+    background-color: sandybrown;
+    padding: 1em;
+}
 .article-body {
     /* for debug */
     background-color: paleturquoise;
