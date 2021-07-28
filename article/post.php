@@ -1,8 +1,9 @@
 <?php
 
+require_once '../vendor/ezyang/htmlpurifier/library/HTMLPurifier.auto.php';
+
 $title = htmlspecialchars($_POST['title'], ENT_QUOTES, 'UTF-8');
 $summary = htmlspecialchars($_POST['summary'], ENT_QUOTES, 'UTF-8');
-$body = htmlspecialchars($_POST['body'], ENT_QUOTES, 'UTF-8');
 
 $date = date("Y年m月d日 H:i:s");
 $fname = date("Ymd") . '.html';
@@ -34,6 +35,12 @@ $page .= $summary;
 $page .= '</p>';
 $page .= '<div class="article-body">';
 
+// Purifierをかける (投稿内の必要なHTMLタグは残したいため)
+$config = HTMLPurifier_Config::createDefault();
+$config->set('HTML.TargetBlank', true);
+$config->set('Attr.EnableID', true);
+$purifier = new HTMLPurifier($config);
+$page .= nl2br($purifier->purify($_POST['body']));
 
 $page .= htmlspecialchars(nl2br($_POST['body']), ENT_QUOTES, 'UTF-8');
 $page .= '</div>';
