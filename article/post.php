@@ -2,6 +2,7 @@
 
 $articles = [
     0 => [
+        0,
         $_POST['title'],
         date("Y/m/d H:i:s"),
         $_POST['summary'],
@@ -15,8 +16,13 @@ $db_fh->setFlags(SplFileObject::READ_CSV);
 
 foreach ($db_fh as $v)
 {
-    $articles[] = $v;
+    if ($v[0] !== null)
+    {
+        $articles[] = $v;
+    }
 }
+
+$articles[0][0] = count($articles);
 
 $db_fh->fseek(0);
 foreach ($articles as $v)
