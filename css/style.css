@@ -55,7 +55,19 @@ ul {
     /* for debug */
     background-color: paleturquoise;
     padding: 1em;
+    line-height: 1.5rem;
 }
+.article-body pre {
+    margin-left: 2rem;
+    padding: 0.5rem;
+    border: dashed 1px;
+}
+.article-body pre, code {
+    line-height: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 .article-link {
     text-decoration: none;
 }
