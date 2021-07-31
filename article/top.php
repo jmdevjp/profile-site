@@ -1,9 +1,18 @@
 <?php
 
+require_once '../vendor/autoload.php';
+
+use League\CommonMark\CommonMarkConverter;
+
 $filepath = '../database.csv';
 $file = new SplFileObject($filepath, "r");
 $file->setFlags(SplFileObject::READ_CSV);
 $COLUMN_SIZE  = 4;
+
+$converter = new CommonMarkConverter([
+    'html_input' => 'strip',
+    'allow_unsafe_links' => false,
+]);
 
 ?>
 
@@ -29,14 +38,14 @@ $COLUMN_SIZE  = 4;
                     <?php if (count($line) == $COLUMN_SIZE) { ?>
                     <article class="article">
                         <header class="article-header">
-                            <h2><?php echo $line[0]; ?></h2>
+                            <h2><?php echo $converter->convertToHtml($line[0]); ?></h2>
                             <p><?php echo $line[1]; ?></p>
                         </header>
-                        <p class="article-summary">
-                            <?php echo $line[2]; ?>
-                        </p>
+                        <div class="article-summary">
+                            <?php echo $converter->convertToHtml($line[2]); ?>
+                        </div>
                         <div class="article-body">
-                            <?php echo $line[3]; ?>
+                            <?php echo $converter->convertToHtml($line[3]); ?>
                         </div>
                     </article>
                     <?php } ?>

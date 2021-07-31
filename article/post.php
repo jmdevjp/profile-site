@@ -1,63 +1,21 @@
 <?php
 
-require_once '../vendor/ezyang/htmlpurifier/library/HTMLPurifier.auto.php';
-
-$title = htmlspecialchars($_POST['title'], ENT_QUOTES, 'UTF-8');
-$summary = htmlspecialchars($_POST['summary'], ENT_QUOTES, 'UTF-8');
-$date = date("Y/m/d H:i:s");
-
-$date = date("Y年m月d日 H:i:s");
-$fname = date("Ymd") . '.html';
-
-$page = '';
-$page .= '<!DOCTYPE html><html lang="ja">';
-
-// 共通の <head> を変数に追加する。
-ob_start();
-include '../head-common.php';
-$page .= ob_get_clean();
-
-$page .= '<body>';
-$page .= '<header class="site-header">';
-$page .= '<h1><a href="../index.html" class="site-header-top-link">jmdevjp\'s profile site</a></h1>';
-$page .= '<nav class="site-header-nav">';
-$page .= '<li>ブログ</li>';
-$page .= '<li><a href="#">その他</a></li>';
-$page .= '</nav>';
-$page .= '</header>';
-
-$page .= '<main>';
-$page .= '<header class="article-header">';
-$page .= '<h2>' . $title .'</h2>';
-$page .= '<p>' . $date . '</p>';
-$page .= '</header>';
-$page .= '<p class="article-summary">';
-$page .= $summary;
-$page .= '</p>';
-$page .= '<div class="article-body">';
-
-// Purifierをかける (投稿内の必要なHTMLタグは残したいため)
-$config = HTMLPurifier_Config::createDefault();
-$purifier = new HTMLPurifier($config);
-$body = nl2br($purifier->purify($_POST['body']));
-$body = str_replace(array("\r\n","\r","\n"), '', $body);
+$articles = [
+    0 => [
+        $_POST['title'],
+        date("Y/m/d H:i:s"),
+        $_POST['summary'],
+        $_POST['body'],
+    ],
+];
 
 $db_file = '../database.csv';
 $db_fh = new SplFileObject($db_file, "c+");
 $db_fh->setFlags(SplFileObject::READ_CSV);
 
-$articles = [
-    0 => [
-        $title,
-        $date,
-        $summary,
-        $body,
-    ],
-];
-
 foreach ($db_fh as $v)
 {
-    $articles[] = str_replace(array("\r\n","\r","\n"), '', $v);
+    $articles[] = $v;
 }
 
 $db_fh->fseek(0);
