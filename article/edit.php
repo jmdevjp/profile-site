@@ -45,7 +45,7 @@ $file = null;
             </nav>
         </header>
 
-        <form method="POST" action="edit_done.php">
+        <form method="POST" action="edit_confirm.php">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <label class="post-label" for="title">タイトル</label><br>
             <input class="post-input" type="text" name="title" value="<?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?>"><br>
