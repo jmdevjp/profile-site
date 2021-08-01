@@ -67,6 +67,11 @@ ul {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+.article-body img {
+    margin-left: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
 
 .article-link {
     text-decoration: none;
