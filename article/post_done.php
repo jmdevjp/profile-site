@@ -10,7 +10,7 @@ $articles = [
     ],
 ];
 
-$db_file = '../database.csv';
+$db_file = '../data/database.csv';
 $db_fh = new SplFileObject($db_file, "c+");
 $db_fh->setFlags(SplFileObject::READ_CSV);
 

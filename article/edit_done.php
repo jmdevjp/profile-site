@@ -5,7 +5,7 @@ $title = $_POST['title'];
 $summary = $_POST['summary'];
 $body = $_POST['body'];
 
-$db_file = '../database.csv';
+$db_file = '../data/database.csv';
 $db_fh = new SplFileObject($db_file, "c+");
 $db_fh->setFlags(SplFileObject::READ_CSV);
 
