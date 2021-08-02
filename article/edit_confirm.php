@@ -1,5 +1,6 @@
 <?php
 
+require_once '../authenticate.php';
 require_once '../vendor/autoload.php';
 
 use League\CommonMark\CommonMarkConverter;

@@ -1,5 +1,7 @@
 <?php
 
+require_once '../authenticate.php';
+
 $id = $_POST['id'];
 $title = $_POST['title'];
 $summary = $_POST['summary'];

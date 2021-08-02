@@ -1,3 +1,9 @@
+<?php
+
+require_once '../authenticate.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -21,7 +27,7 @@
             </nav>
         </header>
 
-        <form method="POST" action="post.php">
+        <form method="POST" action="post_done.php">
             <label class="post-label" for="title">タイトル</label><br>
             <input class="post-input" type="text" name="title"><br>
             <label class="post-label" for="summary">概要</label><br>
