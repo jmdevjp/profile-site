@@ -1,43 +1,40 @@
 <?php
 
-require_once '../authenticate.php';
+require_once './common.php';
 
-$db_file = '../data/database.csv';
-$db_fh = new SplFileObject($db_file, "r");
-$db_fh->setFlags(SplFileObject::READ_CSV);
-
-$id = $_POST['id'];
-
-for (; !$db_fh->eof(); $db_fh->next())
+if (IsLogin())
 {
-    $edit_line = $db_fh->current();
-    if ($edit_line[0] === $id)
-    {
-        $title = $edit_line[1];
-        $summary = $edit_line[3];
-        $body = $edit_line[4];
-        break;
-    }
-}
+    $db_file = '../data/database.csv';
+    $db_fh = new SplFileObject($db_file, "r");
+    $db_fh->setFlags(SplFileObject::READ_CSV);
 
-$file = null;
+    $id = $_POST['id'];
+
+    for (; !$db_fh->eof(); $db_fh->next())
+    {
+        $edit_line = $db_fh->current();
+        if ($edit_line[0] === $id)
+        {
+            $title = $edit_line[1];
+            $summary = $edit_line[3];
+            $body = $edit_line[4];
+            break;
+        }
+    }
+
+    $file = null;
+}
+else
+{
+    header('Location: login.php');
+    exit();
+}
 
 ?>
 
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <title>jmdevjp's profile site</title>
-
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-
-        <!-- CSS -->
-        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-        <link href="../css/style.css" rel="stylesheet" >
-    </head>
-
+    <?php include('../head-common.php'); ?>
     <body>
         <header class="site-header">
             <h1><a href="../index.html" class="site-header-top-link">jmdevjp's profile site</a></h1>
@@ -47,6 +44,7 @@ $file = null;
             </nav>
         </header>
 
+        <?php if (IsLogin()) { ?>
         <form method="POST" action="edit_confirm.php">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <label class="post-label" for="title">タイトル</label><br>
@@ -58,5 +56,8 @@ $file = null;
             <label class="post-label" for="send"></label><br>
             <button class="post-button" type="submit" name="send">送信</button>
         </form>
+        <?php } else { ?>
+            そのようなページはありません。
+        <?php } ?>
     </body>
 </html>

@@ -19,11 +19,7 @@ $converter = new CommonMarkConverter([
 
 <!DOCTYPE html>
 <html lang="ja">
-    <?php
-        $url = '..';
-        include('../head-common.php');
-    ?>
-
+    <?php include('../head-common.php'); ?>
     <body>
         <header class="site-header">
             <h1><a href="../index.html" class="site-header-top-link">jmdevjp's profile site</a></h1>

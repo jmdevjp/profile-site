@@ -1,23 +1,19 @@
 <?php
 
-require_once '../authenticate.php';
+require_once './common.php';
+
+if (!IsLogin())
+{
+    $_SESSION['return'] = $_SERVER['REQUEST_URI'];
+    header('Location: login.php');
+    exit();
+}
 
 ?>
 
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <title>jmdevjp's profile site</title>
-
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-
-        <!-- CSS -->
-        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-        <link href="../css/style.css" rel="stylesheet" >
-    </head>
-
+    <?php include('../head-common.php'); ?>
     <body>
         <header class="site-header">
             <h1><a href="../index.html" class="site-header-top-link">jmdevjp's profile site</a></h1>

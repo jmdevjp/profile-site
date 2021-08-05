@@ -19,25 +19,9 @@ $converter = new CommonMarkConverter([
 
 <!DOCTYPE html>
 <html lang="ja">
-    <?php
-        $url = '..';
-        include('../head-common.php');
-    ?>
-
+    <?php include('../head-common.php'); ?>
     <body>
-        <header class="site-header">
-            <h1><a href="../index.html" class="site-header-top-link">jmdevjp's profile site</a></h1>
-            <nav class="site-header-nav">
-                <li>ブログ</li>
-                <?php if (IsLogin()) { ?>
-                    <li><?php echo GetUserId(); ?></li>
-                    <li><a href="logout.php">ログアウト</a></li>
-                <?php } else { ?>
-                    <li><a href="login.php">ログイン</a></li>
-                <?php } ?>
-            </nav>
-        </header>
-
+        <?php include('../site-header.php'); ?>
         <main class="site-main">
             <div class="article-box">
                 <?php foreach ($file as $line) { ?>
@@ -46,11 +30,13 @@ $converter = new CommonMarkConverter([
                         <header class="article-header">
                             <h2>#<?php echo $line[0]; ?> <?php echo $converter->convertToHtml($line[1]); ?></h2>
                             <p><?php echo $line[2]; ?></p>
+                            <?php if (IsLogin()) { ?>
                             <form method="POST" action="edit.php">
                                 <input type="hidden" name="id" value="<?php echo $line[0]; ?>">
                                 <label class="post-label" for="edit"></label><br>
                                 <button class="post-button" type="submit" name="edit">編集</button>
                             </form>
+                            <?php } ?>
                         </header>
                         <div class="article-summary">
                             <?php echo $converter->convertToHtml($line[3]); ?>
