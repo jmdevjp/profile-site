@@ -1,7 +1,5 @@
 <?php
 
-require_once '../authenticate.php';
-
 $articles = [
     0 => [
         0,
