@@ -1,6 +1,19 @@
 <?php
 require_once './common.php';
 
+if (IsLogin())
+{
+    $return = 'top.php';
+    if (isset($_SESSION['return']))
+    {
+        unset($_SESSION['return']);
+        $return = $_SESSION['return'];
+    }
+
+    header('Location: ' . $return);
+    exit;
+}
+
 $user_id = $_POST[USER_ID];
 $password = $_POST['password'];
 
@@ -25,7 +38,13 @@ else
     SetError('ユーザー名またはパスワードが違います。');
 }
 
-header('Location: ./login.php');
+$url = 'login.php';
+if (isset($_SESSION['return']))
+{
+    $url = $_SESSION['return'];
+    unset($_SESSION['return']);
+}
+header('Location: ' . $url);
 exit;
 
 ?>
