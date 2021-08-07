@@ -2,6 +2,13 @@
 
 require_once './common.php';
 
+if (!isset($_POST['id']))
+{
+    echo '直接参照できないページです。<br>';
+    echo '<a href="top.php">ブログトップ</a>';
+    exit;
+}
+
 if (IsLogin())
 {
     $db_file = '../data/database.csv';

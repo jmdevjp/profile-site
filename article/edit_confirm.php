@@ -4,6 +4,17 @@ require_once '../vendor/autoload.php';
 
 use League\CommonMark\CommonMarkConverter;
 
+if (
+    !isset($_POST['id']) ||
+    !isset($_POST['title']) ||
+    !isset($_POST['summary']) ||
+    !isset($_POST['body']))
+{
+    echo '直接参照できないページです。<br>';
+    echo '<a href="top.php">ブログトップ</a>';
+    exit;
+}
+
 $id = $_POST['id'];
 $title = $_POST['title'];
 $summary = $_POST['summary'];

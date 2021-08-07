@@ -1,5 +1,15 @@
 <?php
 
+if (
+    !isset($_POST['title']) ||
+    !isset($_POST['summary']) ||
+    !isset($_POST['body']))
+{
+    echo '直接参照できないページです。<br>';
+    echo '<a href="top.php">ブログトップ</a>';
+    exit;
+}
+
 $articles = [
     0 => [
         0,
