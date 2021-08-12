@@ -9,6 +9,13 @@ ul {
     margin-bottom: 1em;
     margin-left: 2em;
 }
+body {
+    background-color: #EFEFEF;
+}
+
+span.bold {
+    font-weight: bold;
+}
 
 .site-header {
     display: flex;
@@ -116,3 +123,90 @@ ul {
         flex-wrap: wrap;
     }
 } */
+
+/* カラーパレット */
+.primary-color-default {
+    background: #009688;
+}
+.primary-color-dark {
+    background: #00796B;
+}
+.primary-color-light {
+    background: #B2DFDB;
+}
+.text-primary-color {
+    color: #FFFFFF;
+}
+.accent-color {
+    background: #FF5252;
+}
+.primary-text-color {
+    color: #212121;
+}
+.secondary-text-color {
+    color: #757575;
+}
+
+/* トップページのヘッダー領域 */
+.top-header p {
+    font-size: 2rem;
+    text-align: center;
+    padding: 0.25rem;
+}
+.top-header a {
+    font-weight: bold;
+    text-decoration-line: none;
+}
+.top-header a:hover {
+    color: #FF5252;
+}
+
+/* トップページのヘッダー領域 その2 */
+.top-header-second {
+    height: 300px;
+}
+
+/* トップページのコンテンツ領域 */
+.top-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.top-main-contents {
+    max-width: 600px;
+    margin-top: 3rem;
+}
+.top-main-contents h2 {
+    font-weight: bold;
+}
+
+/* トップページのメニュー領域 */
+.top-menu {
+    position: relative;
+    top: 20px;
+    display: grid;
+    place-items: center;
+}
+
+/* 目立つリンクアイコン */
+.accent-contents p {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+}
+.accent-contents a {
+    font-size: 1.5rem;
+    text-decoration-line: none;
+}
+
+/* トップページのフッター領域 */
+.top-footer {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+.top-footer small {
+    text-align: center;
+}
