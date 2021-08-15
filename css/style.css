@@ -161,9 +161,13 @@ span.bold {
     color: #FF5252;
 }
 
-/* トップページのヘッダー領域 その2 */
-.top-header-second {
-    height: 300px;
+.top-profile-icon {
+    text-align: center;
+    margin: 20px 0;
+}
+.top-profile-icon img {
+    width: 100px;
+    height: 100px;
 }
 
 /* トップページのコンテンツ領域 */
@@ -173,8 +177,7 @@ span.bold {
     align-items: center;
 }
 .top-main-contents {
-    max-width: 600px;
-    margin-top: 3rem;
+    max-width: 800px;
 }
 .top-main-contents h2 {
     font-weight: bold;
