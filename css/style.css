@@ -193,27 +193,6 @@ span.bold {
     font-weight: bold;
 }
 
-/* トップページのメニュー領域 */
-.top-menu {
-    position: relative;
-    top: 20px;
-    display: grid;
-    place-items: center;
-}
-
-/* 目立つリンクアイコン */
-.accent-contents p {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-}
-.accent-contents a {
-    font-size: 1.5rem;
-    text-decoration-line: none;
-}
-
 /* トップページのフッター領域 */
 .top-footer {
     min-height: 100%;
