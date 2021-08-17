@@ -10,10 +10,10 @@ $url = (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST
         <li>ブログ</li>
         <?php if (IsLogin()) { ?>
             <li><?php echo GetUserId(); ?></li>
-            <li><a href="<?php echo $url; ?>/article/post.php">投稿</a></li>
-            <li><a href="<?php echo $url; ?>/article/logout.php">ログアウト</a></li>
+            <li><a href="<?php echo $url; ?>/blog/post.php">投稿</a></li>
+            <li><a href="<?php echo $url; ?>/blog/logout.php">ログアウト</a></li>
         <?php } else { ?>
-            <li><a href="<?php echo $url; ?>/article/login.php">ログイン</a></li>
+            <li><a href="<?php echo $url; ?>/blog/login.php">ログイン</a></li>
         <?php } ?>
     </nav>
 </header>
