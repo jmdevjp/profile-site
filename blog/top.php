@@ -5,7 +5,7 @@ require_once './common.php';
 
 use League\CommonMark\CommonMarkConverter;
 
-$filepath = '../data/database.csv';
+$filepath = './data/database.csv';
 $file = new SplFileObject($filepath, "r");
 $file->setFlags(SplFileObject::READ_CSV);
 $COLUMN_SIZE  = 5;

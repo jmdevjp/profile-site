@@ -1,3 +1,2 @@
-# ignore article data
-/article/image/
-/data/database.csv
+/vendor/
+/.vscode/

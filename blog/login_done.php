@@ -17,7 +17,7 @@ if (IsLogin())
 $user_id = $_POST[USER_ID];
 $password = $_POST['password'];
 
-$file_path = '../data/user';
+$file_path = './data/user';
 $lines = file($file_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
 if (count($lines) !== 2)
