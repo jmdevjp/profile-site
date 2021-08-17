@@ -1,14 +1,29 @@
+/* カラーパレット */
+:root {
+	--primary-color-default: #009688;
+	--primary-color-dark: #00796B;
+	--primary-color-light: #B2DFDB;
+	--text-primary-color: #FFFFFF;
+	--accent-color: #FF5252;
+	--primary-text-color: #212121;
+	--secondary-text-color: #757575;
+	--bg-color: #EFEFEF;
+}
+
+/* 共通 */
+body {
+	background-color: var(--bg-color);
+	color: var(--primary-text-color);
+}
 h1 {
     padding: 0.25rem 0.5rem;
-    color: #494949;
     background: transparent;
-    border-left: solid 5px #B2DFDB;
+    border-left: solid 5px var(--primary-color-light);
     margin: 1rem;
 }
 h2 {
-    color: #494949;
     background: transparent;
-    border-bottom: dotted 3px #B2DFDB;
+    border-bottom: dotted 3px var(--primary-color-light);
     margin: 0 1rem 1rem 1rem;
 }
 p {
@@ -19,145 +34,11 @@ p {
 ul {
     margin: 0.5rem 1rem 0.5rem 2rem;
 }
-body {
-    background-color: #EFEFEF;
-}
-
-span.bold {
-    font-weight: bold;
-}
-
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    /* for debug */
-    background-color: aqua;
-}
-.site-header-nav {
-    display: flex;
-    list-style: none;
-    /* for debug */
-    background-color: lightsalmon;
-}
-.site-header-top-link {
-    text-decoration: none;
-}
-
-.site-main {
-    /* for debug */
-    background-color: bisque;
-    padding: 1em;
-}
-
-.article-box {
-    display: flex;
-    flex-direction: column;
-}
-.article {
-    /* for debug */
-    background-color: darkkhaki;
-    padding: 1em;
-}
-.article-header {
-    /* for debug */
-    background-color: orchid;
-    padding: 1em;
-}
-.article-summary {
-    /* for debug */
-    background-color: sandybrown;
-    padding: 1em;
-}
-.article-body {
-    /* for debug */
-    background-color: paleturquoise;
-    padding: 1em;
-    line-height: 1.5rem;
-}
-.article-body pre {
-    margin-left: 2rem;
-    padding: 0.5rem;
-    border: dashed 1px;
-}
-.article-body pre, code {
-    line-height: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-.article-body img {
-    margin-left: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.article-link {
-    text-decoration: none;
-}
-
-.site-footer {
-    text-align: center;
-    /* for debug */
-    background-color: lightgreen;
-    padding: 1em;
-}
-
-.post-label, .post-input, .post-button {
-    margin-left: 0.5em;
-}
-.post-input {
-    border: solid;
-    border-width: 1px;
-    width: 40em;
-}
-.post-summary {
-    height: 3em;
-}
-.post-body {
-    height: 12em;
-}
-.post-button {
-    border: outset;
-}
-
-/*
- * 横幅が大きい場合は記事を2列にする。
- */
-
-/* 記事一覧ページは作成中のため一旦無効化 */
-/* @media (min-width: 800px) {
-    article {
-        width: 50%;
-    }
-    .article-box {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-} */
-
-/* カラーパレット */
-.primary-color-default {
-    background: #009688;
-}
-.primary-color-dark {
-    background: #00796B;
-}
-.primary-color-light {
-    background: #B2DFDB;
-}
-.text-primary-color {
-    color: #FFFFFF;
-}
-.accent-color {
-    background: #FF5252;
-}
-.primary-text-color {
-    color: #212121;
-}
-.secondary-text-color {
-    color: #757575;
-}
 
 /* トップページのヘッダー領域 */
+.top-header {
+    background-color: var(--primary-color-dark);
+}
 .top-header p {
     font-size: 2rem;
     text-align: center;
@@ -166,11 +47,13 @@ span.bold {
 .top-header a {
     font-weight: bold;
     text-decoration-line: none;
+    color: var(--text-primary-color);
 }
 .top-header a:hover {
-    color: #FF5252;
+    color: var(--accent-color);
 }
 
+/* プロファイルアイコン */
 .top-profile-icon {
     text-align: center;
     margin: 20px 0;
@@ -198,6 +81,7 @@ span.bold {
     min-height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;
+    background-color: var(--primary-color-light);
 }
 .top-footer small {
     text-align: center;
