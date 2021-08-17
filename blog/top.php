@@ -19,9 +19,9 @@ $converter = new CommonMarkConverter([
 
 <!DOCTYPE html>
 <html lang="ja">
-    <?php include('../head-common.php'); ?>
+    <?php include('./head-common.php'); ?>
     <body>
-        <?php include('../site-header.php'); ?>
+        <?php include('./pageheader-common.php'); ?>
         <main class="site-main">
             <div class="article-box">
                 <?php foreach ($file as $line) { ?>
