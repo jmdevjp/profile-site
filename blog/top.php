@@ -28,12 +28,11 @@ $converter = new CommonMarkConverter([
                     <?php if (count($line) == $COLUMN_SIZE) { ?>
                     <article class="article">
                         <header class="article-header">
-                            <h2>#<?php echo $line[0]; ?> <?php echo $converter->convertToHtml($line[1]); ?></h2>
+                            <h2><?php echo $converter->convertToHtml($line[1]); ?></h2>
                             <p><?php echo $line[2]; ?></p>
                             <?php if (IsLogin()) { ?>
                             <form method="POST" action="edit.php">
                                 <input type="hidden" name="id" value="<?php echo $line[0]; ?>">
-                                <label class="post-label" for="edit"></label><br>
                                 <button class="post-button" type="submit" name="edit">編集</button>
                             </form>
                             <?php } ?>

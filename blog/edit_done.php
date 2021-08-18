@@ -1,7 +1,5 @@
 <?php
 
-require_once '../authenticate.php';
-
 if (
     !isset($_POST['id']) ||
     !isset($_POST['title']) ||
