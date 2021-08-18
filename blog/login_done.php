@@ -38,13 +38,21 @@ else
     SetError('ユーザー名またはパスワードが違います。');
 }
 
-$url = 'login.php';
-if (isset($_SESSION['return']))
+if (AnyErrors())
 {
-    $url = $_SESSION['return'];
-    unset($_SESSION['return']);
+    header('Location: login.php');
+    exit;
 }
-header('Location: ' . $url);
-exit;
+else
+{
+    $url = 'top.php';
+    if (isset($_SESSION['return']))
+    {
+        $url = $_SESSION['return'];
+        unset($_SESSION['return']);
+    }
+    header('Location: ' . $url);
+    exit;
+}
 
 ?>
