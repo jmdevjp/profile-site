@@ -50,6 +50,7 @@ $converter = new CommonMarkConverter([
         </main>
 
         <footer class="page-footer">
+            <small>&copy;2021- <a href="https://twitter.com/jmdevjp" target="_blank" rel="noopener noreferrer">@jmdevjp</a></small>
         </footer>
 </body>
 </html>

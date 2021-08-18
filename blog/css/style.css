@@ -88,6 +88,17 @@ body {
     margin: 0.5rem 0 0.5rem 2rem;
 }
 
+/* ページフッターの設定　*/
+.page-footer {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background-color: var(--primary-color-light);
+}
+.page-footer small {
+    text-align: center;
+}
+
 /* ボタンの装飾 */
 .button {
     border: 3px outset var(--primary-color-default);
