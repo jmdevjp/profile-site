@@ -43,13 +43,7 @@ else
 <html lang="ja">
     <?php include('./head-common.php'); ?>
     <body>
-        <header class="site-header">
-            <h1><a href="../index.html" class="site-header-top-link">jmdevjp's profile site</a></h1>
-            <nav class="site-header-nav">
-                <li><a href="./top.php">ブログ</a></li>
-                <li><a href="#">その他</a></li>
-            </nav>
-        </header>
+        <?php include('./pageheader-common.php'); ?>
 
         <?php if (IsLogin()) { ?>
         <form method="POST" action="edit_confirm.php">

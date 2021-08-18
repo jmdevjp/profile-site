@@ -3,11 +3,9 @@ require_once './common.php';
 ?>
 
 <!DOCTYPE html>
-    <head>
-        <title>Login</title>
-    </head>
-
+    <?php include('./head-common.php'); ?>
     <body>
+        <?php include('./pageheader-common.php'); ?>
         <?php if (IsLogin()) { ?>
             <p>ログイン済みです。</P>
             <a href="./top.php">ブログトップ</a>

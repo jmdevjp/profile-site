@@ -1,6 +1,7 @@
 <?php
 
 require_once './vendor/autoload.php';
+require_once './common.php';
 
 use League\CommonMark\CommonMarkConverter;
 
@@ -31,13 +32,7 @@ $converter = new CommonMarkConverter([
 <html lang="ja">
     <?php include('./head-common.php'); ?>
     <body>
-        <header class="site-header">
-            <h1><a href="../index.html" class="site-header-top-link">jmdevjp's profile site</a></h1>
-            <nav class="site-header-nav">
-                <li>ブログ</li>
-                <li><a href="#">その他</a></li>
-            </nav>
-        </header>
+        <?php include('./pageheader-common.php'); ?>
 
         <main class="site-main">
             <div class="article-box">
