@@ -42,3 +42,54 @@ body {
 	margin: 0 auto;
 	padding: 0 4%;
 }
+
+.article {
+	border: 1px solid var(--secondary-text-color);
+	margin: 10px 0;
+	padding: 10px;
+}
+.article h2 {
+	font-size: 1.5rem;
+	border-bottom: 2px solid var(--primary-color-dark);
+}
+
+.article-header {
+	margin-bottom: 10px;
+}
+.article-header-misc {
+	display: flex;
+}
+
+/* 記事サマリ部の設定 */
+.article-summary {
+	border: 2px solid var(--primary-color-light);
+	margin: 10px 0;
+}
+.article-summary::before {
+	content: "まとめ";
+	background-color: var(--primary-color-light);
+	font-size: 1.25rem;
+}
+.article-summary p {
+	padding: 0.25rem 0.5rem;
+}
+
+/* 記事本文の設定 */
+.article-body pre {
+	margin: 10px 0;
+	padding: 4px;
+	border: 1px double var(--secondary-text-color);
+	overflow: auto;
+}
+.article-body p > img {
+	max-width: 100%;
+}
+.article-body ul {
+    margin: 0.5rem 0 0.5rem 2rem;
+}
+
+/* ボタンの装飾 */
+.button {
+    border: 3px outset var(--primary-color-default);
+    background: var(--primary-color-light);
+}

@@ -22,7 +22,7 @@ $converter = new CommonMarkConverter([
     <?php include('./head-common.php'); ?>
     <body>
         <?php include('./pageheader-common.php'); ?>
-        <main class="site-main">
+        <main class="site-main wrapper">
             <div class="article-box">
                 <?php foreach ($file as $line) { ?>
                     <?php if (count($line) == $COLUMN_SIZE) { ?>
@@ -33,7 +33,7 @@ $converter = new CommonMarkConverter([
                             <?php if (IsLogin()) { ?>
                             <form method="POST" action="edit.php">
                                 <input type="hidden" name="id" value="<?php echo $line[0]; ?>">
-                                <button class="post-button" type="submit" name="edit">編集</button>
+                                <button class="button" type="submit" name="edit">編集</button>
                             </form>
                             <?php } ?>
                         </header>
@@ -49,8 +49,7 @@ $converter = new CommonMarkConverter([
             </div>
         </main>
 
-        <footer class="site-footer">
-            <p>&copy; 2021- <a href="https://twitter.com/jmdevjp" target="_blank" rel="noopener noreferrer">@jmdevjp</a></p>
+        <footer class="page-footer">
         </footer>
 </body>
 </html>
