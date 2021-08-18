@@ -1,9 +1,3 @@
-<?php
-
-$url = (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"];
-
-?>
-
 <head>
     <title>jmdevjp's profile site</title>
 
@@ -13,5 +7,5 @@ $url = (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-    <link href="<?php echo $url; ?>/css/style.css" rel="stylesheet" >
+    <link href="./css/style.css" rel="stylesheet" >
 </head>

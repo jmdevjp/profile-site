@@ -1,0 +1,44 @@
+:root {
+	--primary-color-default: #009688;
+	--primary-color-dark: #00796B;
+	--primary-color-light: #B2DFDB;
+	--text-primary-color: #FFFFFF;
+	--accent-color: #FF5252;
+	--primary-text-color: #212121;
+	--secondary-text-color: #757575;
+	--bg-color: #EFEFEF;
+}
+body {
+	background-color: var(--bg-color);
+	color: var(--primary-text-color);
+}
+
+/* ページヘッダーの設定　*/
+.page-header {
+	/* 左右割付、上下中央揃えにする。 */
+	/* トップページへのリンクとメニューの2つだけ入る想定。 */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	/* 文字サイズが変わってもバランスを保つ高さにする。 */
+	height: 4rem;
+}
+.page-header a {
+	text-decoration: none;
+}
+.page-header li {
+	list-style: none;
+}
+.main-nav ul {
+	display: flex;
+	align-items: center;
+    list-style: none;
+}
+.main-nav li {
+	margin-left: 1rem;
+}
+
+.wrapper {
+	margin: 0 auto;
+	padding: 0 4%;
+}
