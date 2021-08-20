@@ -121,3 +121,31 @@ body {
 .login-form button {
     margin: 20px 0 0 4px;
 }
+
+/* 投稿ページの装飾 */
+.post-form label {
+	display: block;
+	max-width: 200px;
+}
+.post-form input, textarea {
+    background: white;
+    border: solid 1px black;
+    margin: 4px;
+    padding: 4px;
+	max-width: 600px;
+	width: 100%;
+}
+.post-summary {
+	/* 高さを3文字分に設定。padding * 2 だけ足す。 */
+	height: calc( 1.3em * 3 + 1px * 4 * 2);
+	line-height: 1.3;
+}
+.post-body {
+	/* 高さを10文字分に設定。padding * 2 だけ足す。 */
+	height: calc( 1.3em * 10 + 1px * 4 * 2);
+	line-height: 1.3;
+}
+
+.post-form button {
+	margin: 20px 0 0 4px;
+}
