@@ -33,21 +33,20 @@ $converter = new CommonMarkConverter([
     <?php include('./head-common.php'); ?>
     <body>
         <?php include('./pageheader-common.php'); ?>
-
-        <main class="site-main">
+        <main class="site-main wrapper">
+            <p>以下の内容で更新します。</p>
+            <form method="POST" action="edit_done.php">
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                <input type="hidden" name="title" value="<?php echo $title; ?>">
+                <input type="hidden" name="summary" value="<?php echo htmlspecialchars($summary, ENT_QUOTES, 'UTF-8'); ?>">
+                <input type="hidden" name="body" value="<?php echo htmlspecialchars($body, ENT_QUOTES, 'UTF-8'); ?>">
+                <label class="post-label" for="edit"></label>
+                <button class="button" type="submit" name="edit">更新</button>
+            </form>
             <div class="article-box">
                 <article class="article">
-                    <p>以下の内容で更新します。</p>
                     <header class="article-header">
-                        <h2>#<?php echo $id; ?> <?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?></h2>
-                        <form method="POST" action="edit_done.php">
-                            <input type="hidden" name="id" value="<?php echo $id; ?>">
-                            <input type="hidden" name="title" value="<?php echo $title; ?>">
-                            <input type="hidden" name="summary" value="<?php echo htmlspecialchars($summary, ENT_QUOTES, 'UTF-8'); ?>">
-                            <input type="hidden" name="body" value="<?php echo htmlspecialchars($body, ENT_QUOTES, 'UTF-8'); ?>">
-                            <label class="post-label" for="edit"></label><br>
-                            <button class="post-button" type="submit" name="edit">更新</button>
-                        </form>
+                        <h2><?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?></h2>
                     </header>
                     <div class="article-summary">
                         <?php echo $converter->convertToHtml($summary); ?>
@@ -59,8 +58,8 @@ $converter = new CommonMarkConverter([
             </div>
         </main>
 
-        <footer class="site-footer">
-            <p>&copy; 2021- <a href="https://twitter.com/jmdevjp" target="_blank" rel="noopener noreferrer">@jmdevjp</a></p>
+        <footer class="page-footer">
+            <small>&copy;2021- <a href="https://twitter.com/jmdevjp" target="_blank" rel="noopener noreferrer">@jmdevjp</a></small>
         </footer>
 </body>
 </html>
