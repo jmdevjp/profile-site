@@ -46,16 +46,16 @@ else
         <?php include('./pageheader-common.php'); ?>
 
         <?php if (IsLogin()) { ?>
-        <form method="POST" action="edit_confirm.php">
+        <form method="POST" action="edit_confirm.php" class="edit-form wrapper">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
-            <label class="post-label" for="title">タイトル</label><br>
-            <input class="post-input" type="text" name="title" value="<?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?>"><br>
-            <label class="post-label" for="summary">概要</label><br>
-            <textarea class="post-input post-summary" type="text" name="summary"><?php echo htmlspecialchars($summary, ENT_QUOTES, 'UTF-8'); ?></textarea><br>
-            <label class="post-label" for="body">本文</label><br>
-            <textarea class="post-input post-body" type="text" name="body"><?php echo htmlspecialchars($body, ENT_QUOTES, 'UTF-8'); ?></textarea><br>
-            <label class="post-label" for="send"></label><br>
-            <button class="post-button" type="submit" name="send">送信</button>
+            <label for="title">タイトル</label>
+            <input type="text" name="title" value="<?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?>">
+            <label for="summary">概要</label>
+            <textarea class="post-summary" type="text" name="summary"><?php echo htmlspecialchars($summary, ENT_QUOTES, 'UTF-8'); ?></textarea>
+            <label for="body">本文</label>
+            <textarea class="post-body" type="text" name="body"><?php echo htmlspecialchars($body, ENT_QUOTES, 'UTF-8'); ?></textarea>
+            <label for="send"></label>
+            <button class="button" type="submit" name="send">送信</button>
         </form>
         <?php } else { ?>
             そのようなページはありません。
