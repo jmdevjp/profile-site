@@ -2,18 +2,17 @@
 
 require_once './vendor/autoload.php';
 require_once './common.php';
+require_once './blogdata.php';
 
 use League\CommonMark\CommonMarkConverter;
-
-$filepath = './data/database.csv';
-$file = new SplFileObject($filepath, "r");
-$file->setFlags(SplFileObject::READ_CSV);
-$COLUMN_SIZE  = 5;
 
 $converter = new CommonMarkConverter([
     'html_input' => 'strip',
     'allow_unsafe_links' => false,
 ]);
+
+$blog_data = new BlogData();
+$blog_data->load();
 
 ?>
 
@@ -24,27 +23,25 @@ $converter = new CommonMarkConverter([
         <?php include('./pageheader-common.php'); ?>
         <main class="site-main wrapper">
             <div class="article-box">
-                <?php foreach ($file as $line) { ?>
-                    <?php if (count($line) == $COLUMN_SIZE) { ?>
+                <?php foreach ($blog_data->articles as $article) { ?>
                     <article class="article">
                         <header class="article-header">
-                            <h2><?php echo $converter->convertToHtml($line[1]); ?></h2>
-                            <p><?php echo $line[2]; ?></p>
+                            <h2><?php echo $converter->convertToHtml($article->title); ?></h2>
+                            <p><?php echo $article->created_date; ?></p>
                             <?php if (IsLogin()) { ?>
                             <form method="POST" action="edit.php">
-                                <input type="hidden" name="id" value="<?php echo $line[0]; ?>">
+                                <input type="hidden" name="id" value="<?php echo $article->id; ?>">
                                 <button class="button" type="submit" name="edit">編集</button>
                             </form>
                             <?php } ?>
                         </header>
                         <div class="article-summary">
-                            <?php echo $converter->convertToHtml($line[3]); ?>
+                            <?php echo $converter->convertToHtml($article->summary); ?>
                         </div>
                         <div class="article-body">
-                            <?php echo $converter->convertToHtml($line[4]); ?>
+                            <?php echo $converter->convertToHtml($article->body); ?>
                         </div>
                     </article>
-                    <?php } ?>
                 <?php } ?>
             </div>
         </main>

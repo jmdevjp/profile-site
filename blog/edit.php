@@ -11,25 +11,16 @@ if (!isset($_POST['id']))
 
 if (IsLogin())
 {
-    $db_file = './data/database.csv';
-    $db_fh = new SplFileObject($db_file, "r");
-    $db_fh->setFlags(SplFileObject::READ_CSV);
+    require_once './blogdata.php';
+    
+    $blog_data = new BlogData();
+    $blog_data->load();
+    $article = $blog_data->getArticleById($_POST['id']);
 
-    $id = $_POST['id'];
-
-    for (; !$db_fh->eof(); $db_fh->next())
-    {
-        $edit_line = $db_fh->current();
-        if ($edit_line[0] === $id)
-        {
-            $title = $edit_line[1];
-            $summary = $edit_line[3];
-            $body = $edit_line[4];
-            break;
-        }
+    if (is_null($article)) {
+        header('Location: top.php');
+        exit;
     }
-
-    $file = null;
 }
 else
 {
@@ -47,13 +38,13 @@ else
 
         <?php if (IsLogin()) { ?>
         <form method="POST" action="edit_confirm.php" class="edit-form wrapper">
-            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <input type="hidden" name="id" value="<?php echo $article->id; ?>">
             <label for="title">タイトル</label>
-            <input type="text" name="title" value="<?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?>">
+            <input type="text" name="title" value="<?php echo htmlspecialchars($article->title, ENT_QUOTES, 'UTF-8'); ?>">
             <label for="summary">概要</label>
-            <textarea class="post-summary" type="text" name="summary"><?php echo htmlspecialchars($summary, ENT_QUOTES, 'UTF-8'); ?></textarea>
+            <textarea class="post-summary" type="text" name="summary"><?php echo htmlspecialchars($article->summary, ENT_QUOTES, 'UTF-8'); ?></textarea>
             <label for="body">本文</label>
-            <textarea class="post-body" type="text" name="body"><?php echo htmlspecialchars($body, ENT_QUOTES, 'UTF-8'); ?></textarea>
+            <textarea class="post-body" type="text" name="body"><?php echo htmlspecialchars($article->body, ENT_QUOTES, 'UTF-8'); ?></textarea>
             <label for="send"></label>
             <button class="button" type="submit" name="send">送信</button>
         </form>
